@@ -61,7 +61,8 @@ function M.setup(opts)
     Color.new('blue', '#00a2ff')
     -- Color.new('blue', '#03fbff')
     Color.new('cyan', '#01fdfd')
-    Color.new('green', '#00FF00')
+    -- Color.new('green', '#00FF00')
+    Color.new('green', '#00FF77')
     Color.new('purple', '#FF44FF')
 
     Color.new('bg', colors.base03)
@@ -332,6 +333,11 @@ function M.setup(opts)
     Group.new("NotifyINFOBody", colors.purple)
     Group.new("NotifyDEBUGBody", colors.purple)
     Group.new("NotifyTRACEBody", colors.purple)
+    Group.new("TSAttribute", colors.purple)
+    Group.new("TSConstant", colors.orange)
+    Group.new("TSKeywordFunction", colors.blue)
+    Group.new("TSKeywordOperator", colors.red)
+
 
     function M.translate(group)
         if fn.has("nvim-0.6.0") == 0 then return group end
