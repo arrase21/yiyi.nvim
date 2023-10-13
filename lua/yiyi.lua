@@ -63,6 +63,10 @@ function M.setup(opts)
 	-- Color.new('green', '#00FF00')
 	Color.new("green", "#00FF77")
 	Color.new("purple", "#FF44FF")
+	Color.new("menu", "#21222C")
+	Color.new("selection", "#44475A")
+	Color.new("white2", "#ABB2BF")
+	Color.new("bg2", "#282A36")
 
 	Color.new("bg", colors.base03)
 	Group.new("Error", colors.red)
@@ -78,10 +82,10 @@ function M.setup(opts)
 	-- Any variable name, function or class name
 
 	-- any statement, conditional, repeat (for, do while), label, operator
-	Group.new("Type", colors.blue, colors.none, styles.italic)
+	Group.new("Type", colors.blue, colors.none, styles.NONE)
 	Group.new("Structure", colors.blue, colors.none, styles.NONE)
 	Group.new("StorageClass", colors.blue, colors.none, styles.NONE)
-	Group.new("Identifier", colors.blue, colors.none, styles.italic)
+	Group.new("Identifier", colors.blue, colors.none, styles.NONE)
 	Group.new("Constant", colors.orange, colors.none, styles.NONE)
 
 	Group.new("PreProc", colors.red, colors.none, styles.NONE)
@@ -100,18 +104,19 @@ function M.setup(opts)
 	Group.new("Label", colors.purple, colors.none, styles.NONE)
 	Group.new("Special", colors.cyan, colors.none, styles.NONE)
 	Group.new("SpecialChar", colors.purple, colors.none, styles.NONE)
-	Group.new("Boolean", colors.purple, colors.none, styles.italic)
-	Group.new("String", colors.purple, colors.none, styles.italic)
+	Group.new("Boolean", colors.purple, colors.none, styles.NONE)
+	Group.new("String", colors.purple, colors.none, styles.NONE)
 	Group.new("Character", colors.yellow, colors.none, styles.NONE)
 
 	Group.new("Number", colors.purple, colors.none, styles.NONE)
 	Group.new("Float", colors.purple, colors.none, styles.NONE)
-	Group.new("Function", colors.green, colors.none, styles.NONE)
+	Group.new("Function", colors.green, colors.none, styles.italic)
+	Group.new("FunctionBuiltin", colors.green, colors.none, styles.italic)
 	Group.new("Operator", colors.red, colors.none, styles.NONE)
 	Group.new("Title", colors.red, colors.none, styles.NONE)
 
 	Group.new("Tag", colors.orange, colors.none, styles.NONE)
-	Group.new("TODO", colors.blue, colors.none, styles.bold)
+	Group.new("TODO", colors.blue, colors.none, styles.italic)
 
 	Group.new("Underlined", colors.green, colors.none, styles.NONE)
 	Group.new("Ignore", colors.none, colors.none, styles.NONE)
@@ -152,10 +157,10 @@ function M.setup(opts)
 	Group.new("SpellLocal", colors.none, colors.none, styles.undercurl, colors.yellow)
 
 	-- pum (popup menu)
-	Group.new("Pmenu", groups.Normal, colors.base02, styles.none) -- popup menu normal item
-	Group.new("PmenuSel", colors.purple, colors.purple, styles.reverse) -- selected item
-	Group.new("PmenuSbar", colors.purple, colors.none, styles.reverse)
-	Group.new("PmenuThumb", colors.purple, colors.none, styles.reverse)
+	Group.new("Pmenu", colors.white2, colors.none, styles.none) -- popup menu normal item
+	Group.new("PmenuSel", colors.white2, colors.selection, styles.NONE) -- selected item
+	Group.new("PmenuSbar", colors.none, colors.bg2, styles.NONE)
+	Group.new("PmenuThumb", colors.none, colors.selection, styles.NONE)
 
 	-- be nice for this float border to be cyan if active
 	Group.new("FloatBorder", colors.base02)
@@ -163,6 +168,11 @@ function M.setup(opts)
 	Group.new("LineNr", colors.base01, colors.none, styles.NONE)
 	Group.new("CursorLine", colors.none, colors.base02, styles.NONE, colors.base1)
 	Group.new("Iluminate", colors.none, colors.base04, styles.italic)
+	Group.new("IlluminatedWordText", colors.none, colors.base04, styles.italic)
+	Group.new("IlluminatedWordRead", colors.none, colors.base04, styles.italic)
+	Group.new("IlluminatedWordWrite", colors.none, colors.base04, styles.italic)
+	Group.new("illuminatedWord", colors.none, colors.base04, styles.italic)
+	Group.new("illuminatedCurWord", colors.none, colors.base04, styles.italic)
 	Group.new("CursorLineNr", colors.none, colors.none, styles.NONE, colors.base1)
 	Group.new("ColorColumn", colors.none, colors.base02, styles.NONE)
 	Group.new("Cursor", colors.base03, colors.base0, styles.NONE)
@@ -334,6 +344,11 @@ function M.setup(opts)
 	Group.new("TSConstant", colors.orange)
 	Group.new("TSKeywordFunction", colors.blue)
 	Group.new("TSKeywordOperator", colors.red)
+
+	Group.new("AlphaHeader", colors.purple)
+	Group.new("AlphaButtons", colors.cyan)
+	Group.new("AlphaShortcut", colors.cyan)
+	Group.new("AlphaFooter", colors.purple)
 
 	function M.translate(group)
 		if fn.has("nvim-0.6.0") == 0 then
